@@ -1,0 +1,34 @@
+<!-- templates/auth/login.html -->
+{% extends 'base.html' %}
+{% block title %}Connexion — MonBlog{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+<div class="col-md-5">
+    <div class="card shadow mt-5">
+        <div class="card-header bg-dark text-white text-center">
+            <h4>🔐 Connexion</h4>
+        </div>
+        <div class="card-body">
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+            </div>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Nom d'utilisateur</label>
+                    <input type="text" name="username" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mot de passe</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-dark w-100">Se connecter</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

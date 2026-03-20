@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Supprimer — {{ article.titre }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+<div class="col-md-6">
+
+    <div class="card border-danger shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">🗑️ Confirmer la suppression</h5>
+        </div>
+        <div class="card-body">
+            <p class="mb-1">Vous êtes sur le point de supprimer l'article :</p>
+            <p class="fw-bold fs-5 text-danger">« {{ article.titre }} »</p>
+            <p class="text-muted small">Cette action est <strong>irréversible</strong>.</p>
+        </div>
+        <div class="card-footer d-flex gap-2">
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">
+                    Oui, supprimer
+                </button>
+            </form>
+            <a href="{% url 'articles:detail' article.slug %}" class="btn btn-secondary">
+                Annuler
+            </a>
+        </div>
+    </div>
+
+</div>
+</div>
+{% endblock %}
