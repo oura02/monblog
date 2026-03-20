@@ -17,7 +17,7 @@ Application web complète développée avec **Django** et **Django REST Framewor
 - Pagination (10 articles par page)
 
 ## Installation
-git clone https://github.com/TON_USERNAME/monblog.git
+git clone https://github.com/oura02/monblog.git
 cd monblog
 python -m venv venv
 venv\Scripts\activate
